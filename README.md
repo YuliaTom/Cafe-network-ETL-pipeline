@@ -1,11 +1,19 @@
-# Update me!
+<html>
+   <body>
+      <img src="https://www.grazitti.com/wp-content/uploads/2019/08/ETL_Bannera.gif"
+        width="400" 
+        height="150" >
+   </body>
+</html>
 
-# TODO 1 - We need to try move the transaction Class back into a module and pass the connection object (cursor) as a argument into the functions/methods using it so you dont need to import back into app.py
+# ETL Data Pipeline
 
-# TODO Note that from some testing I concluded that our circular import partially initialized issue meant for example if app.py imports from transactions, then transactions cannot import back from app.py at all, A solution to this is figuring out how to achieve TODO 1 - or maybe moving the connection altogether into its own module
+## Table of contents
+1. [About the project](#about-the-project-a-nameabout-the-projecta)
+2. [Getting started](#getting-starteda-namegetting-starteda)
+    2.1. [Prequisites](#prequisitesa-nameprequisitesa)
+    2.2. [Installation](#installation-a-nameinstallationa)
+3. [Usage](#usagea-nameusagea)
+4. [Testing](#testsa-nametestsa)
 
-# TODO Class methods could be rewritten
 
-# TODO Possibly condense modules
-
-# TODO Update, Moved connection into its own module and transactions, create tables import from the db_connect module with app.py gaining connection to the db_connect through the create_tables module.
