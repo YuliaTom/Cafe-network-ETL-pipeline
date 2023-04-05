@@ -1,0 +1,1 @@
+aws cloudformation deploy --template-file deployment.yaml --stack-name team4-cf-lambda --s3-bucket team-4-zip-temp-bucket --region eu-west-1 --parameter-overrides S3CSVBucketName=awaynetesttrigger DeploymentBucket=team-4-zip-temp-bucket DeploymentPackageKey=lambda.zip --capabilities CAPABILITY_IAM

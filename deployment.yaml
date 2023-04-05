@@ -1,0 +1,145 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: "CI/CD pipeline to deploy to aws cloudformation stack from github action"
+Parameters:
+  DeploymentBucket:
+    Type: String
+    Description: Enter the name of the S3 bucket where your deployment packages are.
+  DeploymentPackageKey:
+    Type: String
+    Description: Enter the name of the S3 key of your deployment package file is.
+  S3CSVBucketName:
+    Type: String
+    Description: S3 bucket that's used for the CSV to land
+Resources: 
+  Team4lambdaFunctionIamRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+        - Effect: Allow
+          Principal:
+            Service:
+              - lambda.amazonaws.com
+          Action:
+            - sts:AssumeRole
+      Policies:
+        - PolicyName: Team4CiCDRole
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - "s3:GetBucketNotification"
+                  - "s3:PutBucketNotification"
+                Resource: !Sub "arn:aws:s3:::${S3CSVBucketName}"
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: "*"
+
+
+  Team4lambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Description: "Lambda to handle the extract transform and load"
+      FunctionName: team4-lambda-cf
+      Handler: lambda.handler
+      Layers: 
+        - arn:aws:lambda:eu-west-1:336392948345:layer:AWSDataWrangler-Python39:5
+        - arn:aws:lambda:eu-west-1:506555054152:layer:psycopg2:8
+      MemorySize: 128
+      Role: !GetAtt Team4lambdaFunctionIamRole.Arn
+      Runtime: python3.8
+      Timeout: 50
+      Code:
+        S3Bucket: !Ref DeploymentBucket
+        S3Key: !Ref DeploymentPackageKey
+
+  LambdaInvokePermission:
+    Type: "AWS::Lambda::Permission"
+    Properties:
+      FunctionName: !GetAtt Team4lambdaFunction.Arn
+      Action: "lambda:InvokeFunction"
+      Principal: s3.amazonaws.com
+      SourceAccount: !Ref "AWS::AccountId"
+      SourceArn: !Sub "arn:aws:s3:::${S3CSVBucketName}"
+
+  Team4NotificationFunction:
+    Type: "AWS::Lambda::Function"
+    Properties:
+      Handler: index.lambda_handler
+      Role: !GetAtt Team4lambdaFunctionIamRole.Arn
+      Code:
+        ZipFile: |
+
+          from __future__ import print_function
+          import json
+          import boto3
+          import cfnresponse
+
+          SUCCESS = "SUCCESS"
+          FAILED = "FAILED"
+
+          print('Loading function')
+          s3 = boto3.resource('s3')
+
+          def lambda_handler(event, context):
+              print("Received event: " + json.dumps(event, indent=2))
+              responseData={}
+              try:
+                  if event['RequestType'] == 'Delete':
+                      print("Request Type:",event['RequestType'])
+                      Bucket=event['ResourceProperties']['Bucket']
+                      delete_notification(Bucket)
+                      print("Sending response to custom resource after Delete")
+                  elif event['RequestType'] == 'Create' or event['RequestType'] == 'Update':
+                      print("Request Type:",event['RequestType'])
+                      LambdaArn=event['ResourceProperties']['LambdaArn']
+                      Bucket=event['ResourceProperties']['Bucket']
+                      add_notification(LambdaArn, Bucket)
+                      responseData={'Bucket':Bucket}
+                      print("Sending response to custom resource")
+                  responseStatus = 'SUCCESS'
+              except Exception as e:
+                  print('Failed to process:', e)
+                  responseStatus = 'FAILED'
+                  responseData = {'Failure': 'Something bad happened.'}
+              cfnresponse.send(event, context, responseStatus, responseData)
+
+          def add_notification(LambdaArn, Bucket):
+              bucket_notification = s3.BucketNotification(Bucket)
+              response = bucket_notification.put(
+                NotificationConfiguration={
+                  'LambdaFunctionConfigurations': [
+                    {
+                        'LambdaFunctionArn': LambdaArn,
+                        'Events': [
+                            's3:ObjectCreated:*'
+                        ]
+                    }
+                  ]
+                }
+              )
+              print("Put request completed....")
+            
+          def delete_notification(Bucket):
+              bucket_notification = s3.BucketNotification(Bucket)
+              response = bucket_notification.put(
+                  NotificationConfiguration={}
+              )
+              print("Delete request completed....")
+      Runtime: python3.8
+      Timeout: 50
+
+
+  LambdaTrigger:
+    Type: "Custom::LambdaTrigger"
+    DeletionPolicy : Retain
+    DependsOn: LambdaInvokePermission
+    Properties:
+      ServiceToken: !GetAtt Team4NotificationFunction.Arn
+      LambdaArn: !GetAtt Team4lambdaFunction.Arn
+      Bucket: !Ref S3CSVBucketName
