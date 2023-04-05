@@ -11,8 +11,8 @@
 ## Table of contents
 1. [About the project](#about-the-project-a-nameabout-the-projecta)
 2. [Getting started](#getting-starteda-namegetting-starteda)
-    2.1. [Prequisites](#prequisitesa-nameprequisitesa)
-    2.2. [Installation](#installation-a-nameinstallationa)
+   * [Prequisites](#prequisitesa-nameprequisitesa)
+   * [Installation](#installation-a-nameinstallationa)
 3. [Usage](#usagea-nameusagea)
 4. [Testing](#testsa-nametestsa)
 
