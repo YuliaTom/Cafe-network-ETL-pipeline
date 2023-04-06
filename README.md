@@ -10,13 +10,13 @@
 
 ## Table of contents
 1. [About the project](#about-the-project-)
-2. [Tech used](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#tech-used)
-3. [Getting started](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#getting-started)
-   * [Prerequisites](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#prerequisites)
-   * [Installation](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#installation)
-4. [Testing](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#testing) 
-5. [ETL Data Pipiline Whiteboard](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#etl-data-pipiline-whiteboard)
-7. [Appendix](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#appendix)
+2. [Tech used](#tech-used)
+3. [Getting started](#getting-started)
+   * [Prerequisites](#prerequisites)
+   * [Installation](#installation)
+4. [Testing](#testing) 
+5. [ETL Data Pipiline Whiteboard](#etl-data-pipiline-whiteboard)
+7. [Appendix](#appendix)
 
 ## About the project <a name="About the project"></a>
 
