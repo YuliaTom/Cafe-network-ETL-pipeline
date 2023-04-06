@@ -11,7 +11,7 @@
 ## Table of contents
 1. [About the project](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#about-the-project-)
 2. [Tech used](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#tech-used)
-3. [Getting started](https://github.com/YuliaTom/Cafe-network-ETL-pipeline#getting-started)
+3. [Getting started](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#getting-started)
    * [Prerequisites](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#prerequisites)
    * [Installation](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#installation)
 4. [Usage]()
@@ -76,10 +76,14 @@ git clone https://github.com/YuliaTom/Cafe-network-ETL-pipeline.git
 
 <img src="https://github.com/YuliaTom/Cafe-network-ETL-pipeline/blob/main/appendix/Screenshot%202023-04-06%20at%2016.53.53.png" width="800">
 
+---
+
 ### DB Schema
 
 <img src="https://github.com/YuliaTom/Cafe-network-ETL-pipeline/blob/main/appendix/Screenshot%202023-04-06%20at%2016.54.07.png" width="800">
 
+---
+
 ### Lambda function testing
 
-<img src=" " width="800">
+<img src="https://github.com/YuliaTom/Cafe-network-ETL-pipeline/blob/main/appendix/Screenshot%202023-04-06%20at%2019.14.54.png" width="800">
