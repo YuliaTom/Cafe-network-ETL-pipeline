@@ -14,9 +14,9 @@
 3. [Getting started](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#getting-started)
    * [Prerequisites](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#prerequisites)
    * [Installation](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#installation)
-4. [Testing]()
-5. [ETL Data Pipiline Whiteboard]()
-7. [Appendix]()
+4. [Testing](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#testing) 
+5. [ETL Data Pipiline Whiteboard](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#etl-data-pipiline-whiteboard)
+7. [Appendix](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#appendix)
 
 ## About the project <a name="About the project"></a>
 
