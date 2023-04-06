@@ -14,9 +14,9 @@
 3. [Getting started](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#getting-started)
    * [Prerequisites](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#prerequisites)
    * [Installation](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#installation)
-4. [Usage]()
-5. [Testing]()
-6. [Appendix]()
+4. [Testing]()
+5. [ETL Data Pipiline Whiteboard]()
+7. [Appendix]()
 
 ## About the project <a name="About the project"></a>
 
@@ -66,9 +66,13 @@ git clone https://github.com/YuliaTom/Cafe-network-ETL-pipeline.git
 ```
 2. Create a virtual environment called `env`
 
-## Usage
-
 ## Testing
+
+Unit testing to be implemented with [Pytest](https://docs.pytest.org/en/7.2.x/)
+
+## ETL Data Pipiline Whiteboard
+
+The schematic representation of the pipeline can be found [here](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/blob/main/appendix/Diagram.png)
 
 ## Appendix
 
