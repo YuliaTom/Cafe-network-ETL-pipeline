@@ -9,7 +9,7 @@
 # ETL Data Pipeline
 
 ## Table of contents
-1. [About the project](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#about-the-project-)
+1. [About the project](#about-the-project-)
 2. [Tech used](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#tech-used)
 3. [Getting started](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#getting-started)
    * [Prerequisites](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#prerequisites)
