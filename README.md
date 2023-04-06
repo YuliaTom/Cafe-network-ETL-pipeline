@@ -11,11 +11,12 @@
 ## Table of contents
 1. [About the project](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#about-the-project-)
 2. [Tech used](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#tech-used)
-3. [Getting started](#getting-starteda-namegetting-starteda)
-   * [Prequisites](#prequisitesa-nameprequisitesa)
-   * [Installation](#installation-a-nameinstallationa)
-4. [Usage](#usagea-nameusagea)
-5. [Testing](#testsa-nametestsa)
+3. [Getting started](https://github.com/YuliaTom/Cafe-network-ETL-pipeline#getting-started)
+   * [Prerequisites](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#prerequisites)
+   * [Installation](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/edit/main/README.md#installation)
+4. [Usage]()
+5. [Testing]()
+6. [Appendix]()
 
 ## About the project <a name="About the project"></a>
 
@@ -46,5 +47,39 @@ By being able to easily query the company's data as a whole, the client will dra
     
 ## Getting started
 
+### Prerequisites
++ Any IDE tool for Python code development,
++ AWS Account,
++ GitHub Account with Repository.
 
 
+### Requirements 
+```
+boto3==1.24.13
+pandas==1.4.2
+psycopg2==2.9.3
+```
+### Installation
+1. Clone the repo
+ ```
+git clone https://github.com/YuliaTom/Cafe-network-ETL-pipeline.git
+```
+2. Create a virtual environment called `env`
+
+## Usage
+
+## Testing
+
+## Appendix
+
+### Lambda Function
+
+<img src="https://github.com/YuliaTom/Cafe-network-ETL-pipeline/blob/main/appendix/Screenshot%202023-04-06%20at%2016.53.53.png" width="800">
+
+### DB Schema
+
+<img src="https://github.com/YuliaTom/Cafe-network-ETL-pipeline/blob/main/appendix/Screenshot%202023-04-06%20at%2016.54.07.png" width="800">
+
+### Lambda function testing
+
+<img src=" " width="800">
