@@ -72,7 +72,9 @@ Unit testing to be implemented with [Pytest](https://docs.pytest.org/en/7.2.x/)
 
 ## ETL Data Pipiline Whiteboard
 
-The schematic representation of the pipeline can be found [here](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/blob/main/appendix/Diagram.png)
+The schematic representation of the pipeline can be found by the link below
+
+[![](https://img.icons8.com/office/2x/link.png)](https://github.com/YuliaTom/Cafe-network-ETL-pipeline/blob/main/appendix/Diagram.png)
 
 ## Appendix
 
